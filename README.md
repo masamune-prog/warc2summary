@@ -21,23 +21,88 @@
 
 ## Features
 
-- TODO
+Implementation of Heuristics to process WARC Files 
 
 ## Requirements
 
-- TODO
+- Python3 
 
 ## Installation
 
 You can install _warc2summary_ via [pip] from [PyPI]:
 
 ```console
-$ pip install warc2summary
+pip install warc2summary
 ```
+
+
 
 ## Usage
 
-Please see the [Command-line Reference] for details.
+There exists 3 parts to this library: WARC Processor, heuristics, Pipeline
+
+#### WARC Processor
+
+This module converts WARC Files to a Pandas DataFrame 
+
+
+```python 
+from warc2summary import warc_processor
+#process WARC Files Directly
+warc_processor.process_warc_files(folder_path, max_workers=4)
+```
+
+#### Heuristics
+This module applies the 3 heuristics developed
+
+Heuristic 1: Takes the about page of the website, else take shortest url(likely to be main page)
+
+Heuristic 2: Takes the shortest url
+
+Heuristic 3: Takes shortest url and applies a Regex Filter
+
+
+```python 
+from warc2summary import heuristics
+#process dataframe
+heuristics.heuristics_1(dataframe)
+```
+
+```python 
+from warc2summary import heuristics
+#process dataframe
+heuristics.heuristics_2(dataframe)
+```
+
+```python 
+from warc2summary import heuristics
+#process dataframe
+heuristics.heuristics_3(dataframe)
+```
+The dataframe must contain the url and the web text content
+
+This module transforms the dataframe for processing using LLMs reducing costs by reducing number of tokens needed
+
+Feel free to contribute
+
+#### pipeline
+
+This module merges the previous 2 modules and joins it with a ground truth dataset for llm evaluation. Only OpenAI api supported for now. This code requires a human labelled dataset. 
+
+To combine all 3 parts and replicate our findings
+
+```python
+from warc2summary import pipeline
+#process WARC Files Directly
+pipeline.execute_pipeline(warc_df,human_df,prompt,heuristic,max_tokens=1000,temperature=0.5,top_p=0.95,frequency_penalty=0.0,presence_penalty=0.0,model="gpt-4o",debug=False)
+```
+To perform batch inference
+
+```python
+from warc2summary import pipeline
+pipeline.batch_prompt(df, prompt ,max_tokens=150,temperature=0.5,top_p=0.95,frequency_penalty=0.0,presence_penalty=0.0,model="gpt-4o",debug=False)
+```
+
 
 ## Contributing
 
@@ -54,15 +119,6 @@ _warc2summary_ is free and open source software.
 If you encounter any problems,
 please [file an issue] along with a detailed description.
 
-## Credits
-
-This project was generated from [@cjolowicz]'s [Hypermodern Python Cookiecutter] template.
-
-[@cjolowicz]: https://github.com/cjolowicz
-[pypi]: https://pypi.org/
-[hypermodern python cookiecutter]: https://github.com/cjolowicz/cookiecutter-hypermodern-python
-[file an issue]: https://github.com/masamune-prog/warc2summary/issues
-[pip]: https://pip.pypa.io/
 
 <!-- github-only -->
 
