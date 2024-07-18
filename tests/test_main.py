@@ -3,7 +3,7 @@ import pytest
 from click.testing import CliRunner
 import pandas as pd
 from warc2summary import warc_processor,heuristics
-import os
+import os,sys
 import pytest
 import pandas as pd
 
@@ -11,7 +11,7 @@ import pandas as pd
 @pytest.fixture
 def target_path():
     # You might want to set this to a specific path or use a temporary directory
-    return r"C:\Users\user\warc2summary\warc_files"
+    return r"warc_files"
 
 @pytest.fixture
 def large_dataframe(target_path):
