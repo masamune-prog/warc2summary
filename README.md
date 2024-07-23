@@ -25,7 +25,7 @@ Implementation of Heuristics to process WARC Files
 
 ## Requirements
 
-- Python3 
+- Python 3.7>
 
 ## Installation
 
@@ -39,11 +39,11 @@ pip install warc2summary
 
 ## Usage
 
-There exists 3 parts to this library: WARC Processor, heuristics, Pipeline
+There exists 3 parts to this library: warc_processor, heuristics, pipeline
 
 #### WARC Processor
 
-This module converts WARC Files to a Pandas DataFrame 
+This module converts WARC Files to a Pandas DataFrame. It uses WARCIO as the processing engine
 
 
 ```python 
@@ -83,7 +83,7 @@ The dataframe must contain the url and the web text content
 
 This module transforms the dataframe for processing using LLMs reducing costs by reducing number of tokens needed
 
-Feel free to contribute
+Feel free to contribute new heuristics
 
 #### pipeline
 
