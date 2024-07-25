@@ -25,7 +25,7 @@ Implementation of Heuristics to process WARC Files
 
 ## Requirements
 
-- Python 3.7>
+- Python 3.9>
 
 ## Installation
 
@@ -102,6 +102,10 @@ To perform batch inference
 from warc2summary import pipeline
 pipeline.batch_prompt(df, prompt ,max_tokens=150,temperature=0.5,top_p=0.95,frequency_penalty=0.0,presence_penalty=0.0,model="gpt-4o",debug=False)
 ```
+## Issues
+
+If some module is not found, please try pip installing the package and refreshing
+Please post a issue on github if something goes wrong
 
 
 ## Contributing
@@ -113,7 +117,7 @@ To learn more, see the [Contributor Guide].
 
 Distributed under the terms of the [MIT license][license],
 _warc2summary_ is free and open source software.
-
+This package is brought to you by the National Library Board. By using any part of this package, you agree to not hold NLB or the developers liable for any damages, physical or otherwise in perpetuity throughout the universe
 ## Issues
 
 If you encounter any problems,
