@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "warc2summary"
-version = "0.0.3"
+version = "0.0.7"
 description = "warc2summary"
 authors = ["masamune-prog <zgoh033@e.ntu.edu.sg>"]
 license = "MIT"

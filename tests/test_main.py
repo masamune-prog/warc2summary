@@ -13,7 +13,7 @@ def target_path():
     # You might want to set this to a specific path or use a temporary directory
     return r"warc_files"
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def large_dataframe(target_path):
     # Create a large sample DataFrame by using WARC Processor on the target path
     df = warc_processor.process_warc_files(target_path)

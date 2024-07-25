@@ -43,7 +43,7 @@ There exists 3 parts to this library: warc_processor, heuristics, pipeline
 
 #### WARC Processor
 
-This module converts WARC Files to a Pandas DataFrame. It uses WARCIO as the processing engine
+This module converts WARC Files to a Pandas DataFrame. It uses WARCIO as the processing engine.
 
 
 ```python 
