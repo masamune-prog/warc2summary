@@ -31,13 +31,18 @@ Implementation of Heuristics to process WARC Files
 ## Installation
 
 You can install _warc2summary_ via [pip] from [PyPI]:
-Add an enviromental variable named 'OPENAI_API_KEY' and set the value to your API key
 
-Click on the video for a visual guide
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/hgXJia5WxtY/0.jpg)](https://www.youtube.com/watch?v=hgXJia5WxtY)
 ```console
 pip install warc2summary
 ```
+
+Add an enviromental variable named 'OPENAI_API_KEY' and set the value to your API key
+
+Click on the video below for a visual guide
+
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/hgXJia5WxtY/0.jpg)](https://www.youtube.com/watch?v=hgXJia5WxtY)
+
 
 
 
