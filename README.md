@@ -26,11 +26,15 @@ Implementation of Heuristics to process WARC Files
 ## Requirements
 
 - Python 3.9>
+- OpenAI API key
 
 ## Installation
 
 You can install _warc2summary_ via [pip] from [PyPI]:
+Add an enviromental variable named 'OPENAI_API_KEY' and set the value to your API key
 
+Click on the video for a visual guide
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/hgXJia5WxtY/0.jpg)](https://www.youtube.com/watch?v=hgXJia5WxtY)
 ```console
 pip install warc2summary
 ```
@@ -43,13 +47,16 @@ There exists 3 parts to this library: warc_processor, heuristics, pipeline
 
 #### WARC Processor
 
-This module converts WARC Files to a Pandas DataFrame. It uses WARCIO as the processing engine.
+This module converts WARC Files to a Pandas DataFrame. It uses FASTWARC as the main processing engine. 
+If you are dealing with legacy ARC files, or find that FASTWARC does not play well with your WARC files, declare fast=False to use WARCIO as the main processor
 
 
 ```python 
 from warc2summary import warc_processor
 #process WARC Files Directly
 warc_processor.process_warc_files(folder_path, max_workers=4)
+#use WARCIO
+warc_processor.process_warc_files(folder_path,fast=False, max_workers=4)
 ```
 
 #### Heuristics
